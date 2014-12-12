@@ -101,12 +101,23 @@ def rollToHit(Bonus = 0): #Manages d20 rolls by returning raw roll values and fi
 	return {'Raw':raw,'Result': raw + Bonus}
 
 
+def rateWeapon(weapon):
 
-#rifle = Gun(Damage = '2d8+4', Critical = '18-20x3')
-#Data = [rifle.attack(Bonus = 10) for i in range(500000)]
-#plt.hist(Data, bins = 54, range = (6,61))
-#plt.show()
+	Data = np.array([weapon.attack(Bonus = 20) for i in range(500000)])
+	plt.hist(Data, bins = Data.max()-Data.min(), range = (Data.min(), Data.max()+1))
+	print "Mean:  ",np.mean(Data)
+	print "Median:",np.median(Data)
+	print "TTK:   ",10.0/np.mean(Data)
 
+	plt.show()
 
+rifle = Gun(Damage = '2d8+0', Critical = '20x3')
+sniper = Gun(Damage = '2d10+0', Critical = '20x4')
+pistol = Gun()
+rocket = Gun(Damage = '10d10+0', Critical = '20x0')
 
+rateWeapon(rifle)
+rateWeapon(sniper)
+rateWeapon(pistol)
+rateWeapon(rocket)
 
