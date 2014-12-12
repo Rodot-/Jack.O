@@ -1,9 +1,0 @@
-Name         STR  DEX  CON  INT	 WIS  CHA  Weapon1         Weapon2         Weapon3        HP  AC  Flat  BAB  CMB  CMD
-------------------------------------------------------------------------------------------------------------------------
-Civilian     +0	  +0   +0   +0	 +0   +0   Punch   1d4	  Knife   1d4     Pistol 1d6	  4   10  8     +0   2	  14
-Thug	     +1	  +2   +0   +0	 +1   +0   Machete 1d6	  Pistol  1d6     Shotgun 1d6	  8   16  14    +3   9	  18
-Thug+	     +2	  +3   +1   +2	 +4   +2   Pistol  1d6+1  Shotgun 1d6+1   Rifle 1d8+1	  10  19  16    +5   11	  22
-Soldier	     +1   +1   +2   -2	 +0   -2   Pistol  1d6	  Knife   1d6     Rifle 1d8	  8   16  14    +2   10	  15
-Soldier+     +2   +2   +2   +0	 +1   +2   Knife   1d4+1  Magnum  1d6+2   Rifle 1d8+1	  10  20  15    +5   12	  16
-Guard        +0   +0   +0   +0   +0   +0   Machete 1d6	  Pistol  1d6     Nightstick 1d4  6   13  8     +0   2	  14
-Heli-chopper +0   +4   +0   +0   +10  +0   LMG     2d4	  Minigun 2d8(R)  Soldiers inside 60  20  15    +4   0	  19
