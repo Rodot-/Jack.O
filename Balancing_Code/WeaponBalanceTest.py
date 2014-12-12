@@ -9,10 +9,9 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
-
 class Gun():
 
-	def __init__(Damage = '1d6+0', Category = 'M', Range = 40, Critical = '19-20x2'):
+	def __init__(self, Damage = "1d6+0", Category = 'M', Range = 40, Critical = '19-20x2'):
 
 		self.Damage = parseDamage(Damage)
 
@@ -21,6 +20,29 @@ class Gun():
 		self.Category = 'M'
 
 		self.Range = Range
+
+	def attack(self, DC = 10, Bonus = 0): #Run Through an Attack
+
+		toHit = rollToHit(Bonus) #Initial Roll
+
+		crit = 0 #Number of Critical Hits
+
+		damageCaused = 0 #Total Damaged Inflicted on Target
+
+		for i in range(self.Critical(toHit['Raw']) - 1): #determines the bonus from critical hits
+
+				crit = i + 1
+
+				if not self.Critical(rollToHit(Bonus)):
+
+					break
+
+		if toHit['Result'] > DC or toHit['Raw'] == 20:
+
+			for i in range(crit + 1):damageCaused += self.Damage()
+
+		return damageCaused
+
 
 
 def parseDamage(Damage, pos = 0): #Parses the Damage parameter for a weapon
@@ -57,7 +79,7 @@ def parseCritical(Critical): #Parses the Critical parameter for a weapon
 
 		threatRange = 20
 	
-	n = int(Critical[Critical.find('x'):]) #Critical Multiplier
+	n = int(Critical[Critical.find('x')+1:]) #Critical Multiplier
 
 	def detectCritical(RawRoll): #Function for determining critical hit result
 
@@ -70,3 +92,21 @@ def parseCritical(Critical): #Parses the Critical parameter for a weapon
 			return 0
 
 	return detectCritical
+
+
+def rollToHit(Bonus = 0): #Manages d20 rolls by returning raw roll values and final roll values
+
+	raw = randint(1,20)
+
+	return {'Raw':raw,'Result': raw + Bonus}
+
+
+
+#rifle = Gun(Damage = '2d8+4', Critical = '18-20x3')
+#Data = [rifle.attack(Bonus = 10) for i in range(500000)]
+#plt.hist(Data, bins = 54, range = (6,61))
+#plt.show()
+
+
+
+
