@@ -114,10 +114,16 @@ def rateWeapon(weapon):
 rifle = Gun(Damage = '2d8+0', Critical = '20x3')
 sniper = Gun(Damage = '2d10+0', Critical = '20x4')
 pistol = Gun()
-rocket = Gun(Damage = '10d10+0', Critical = '20x0')
+rocket = Gun(Damage = '15d2+0', Critical = '20x0')
+shotgun = Gun(Damage = '1d6+0', Critical = '20x2')
+slug = Gun(Damage = '1d10+0', Critical = '20x0')
 
-rateWeapon(rifle)
-rateWeapon(sniper)
-rateWeapon(pistol)
-rateWeapon(rocket)
+
+#rateWeapon(rifle)
+#rateWeapon(sniper)
+#rateWeapon(pistol)
+#rateWeapon(rocket)
+rateWeapon(shotgun)
+rateWeapon(slug)
+
 
